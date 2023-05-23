@@ -20,6 +20,11 @@ Disp.grid(row=1, column=3)
 img = PhotoImage(file='Icon.png')
 image = Disp.create_image(85, 62, image=img)
 
+imgClear = PhotoImage(file='Icon.png')
+def Clear():
+    str1.set('Welcome to Kidzee Academy')
+    Disp.create_image(85, 62, image=imgClear)
+
 def Alphabet(alphabet):
     # alphabet to fruit mapping
     fruit_dict = {
@@ -171,7 +176,7 @@ btnY.grid(row=4, column=4)
 btnZ = Button(frame1, pady=1, bd=4, font=('arial', 21, 'bold'), command=lambda: Alphabet('Z'), width=10, height=3,
               text='Z', bg='orange', fg='white')
 btnZ.grid(row=4, column=5)
-btnClear = Button(frame1, pady=1, bd=4, font=('arial', 21, 'bold'), width=10, height=3, text='Clear', bg='white',
+btnClear = Button(frame1, pady=1, bd=4, font=('arial', 21, 'bold'), command=Clear, width=10, height=3, text='Clear', bg='white',
                   fg='Black')
 btnClear.grid(row=4, column=6)
 
