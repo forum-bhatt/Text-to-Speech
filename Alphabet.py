@@ -1,6 +1,11 @@
 from tkinter import *
+
+import pygame
+import pyttsx3
 from PIL import Image, ImageTk
 
+pygame.init()
+engine = pyttsx3.init()
 root = Tk()
 root.title('Alphabet Application')
 root.geometry('1352x652+0+0')
@@ -24,6 +29,12 @@ imgClear = PhotoImage(file='Icon.png')
 def Clear():
     str1.set('Welcome to Kidzee Academy')
     Disp.create_image(85, 62, image=imgClear)
+    engine.say('Welcome to Kidzee Academy')
+    engine.runAndWait()
+
+def speak_text(text):
+    engine.say(text)
+    engine.runAndWait()
 
 def Alphabet(alphabet):
     # alphabet to fruit mapping
@@ -66,6 +77,9 @@ def Alphabet(alphabet):
     Disp.delete('all')
     Disp.create_image(85, 62, image=alphabet_image)
     Disp.image = alphabet_image  # Store a reference to prevent garbage collection
+
+    # Speak the text
+    speak_text(f'{alphabet} is for {fruit_name}')
 
 # main screen
 Display = Entry(frame1, textvariable=str1, font=('arial', 44, 'bold'), bg='blue', fg='white', bd=34, width=39,
